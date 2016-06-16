@@ -1,0 +1,59 @@
+{
+  "name": "peerdb-www",
+  "description": "TODO",
+  "version": "0.0.0",
+  "author": {
+    "name": "WebTorrent, LLC",
+    "email": "feross@webtorrent.io",
+    "url": "https://webtorrent.io"
+  },
+  "bugs": {
+    "url": "https://github.com/feross/peerdb-www/issues"
+  },
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "compression": "^1.0.9",
+    "cors": "^2.7.1",
+    "debug": "^2.0.0",
+    "downgrade": "^1.0.0",
+    "express": "^4.8.5",
+    "nib": "^1.0.3",
+    "pug": "^2.0.0-beta3",
+    "pump": "^1.0.1",
+    "run-parallel": "^1.0.0",
+    "stylus": "^0.54.0",
+    "unlimited": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.2.1",
+    "standard": "^7.0.0",
+    "watchify": "^3.1.0"
+  },
+  "homepage": "http://feross.org",
+  "keywords": [
+    "data channel",
+    "file transfer",
+    "p2p",
+    "webrtc"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/feross/peerdb-www.git"
+  },
+  "scripts": {
+    "build": "npm run build-css && npm run build-js",
+    "build-css": "stylus -u nib css/main.styl -o static/ -c",
+    "build-js": "browserify client > static/bundle.js",
+    "secret-download": "rsync -a -O -v --delete -e \"ssh -p 44444\" feross@peerdb.io:\"/home/feross/www/peerdb.io/secret/\" secret/",
+    "secret-upload": "rsync -a -O -v --delete -e \"ssh -p 44444\" secret/ feross@peerdb.io:/home/feross/www/peerdb.io/secret/",
+    "size": "npm run build-js && cat static/bundle.js | gzip | wc -c",
+    "start": "npm run build && node server",
+    "test": "standard",
+    "watch": "npm run watch-css & npm run watch-js & DEBUG=peerdb* nodemon server",
+    "watch-css": "stylus -u nib css/main.styl -o static/ -w",
+    "watch-js": "watchify client -o static/bundle.js -dv"
+  }
+}
