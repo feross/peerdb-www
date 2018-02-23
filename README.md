@@ -1,5 +1,7 @@
 # peerdb-www [![travis][travis-image]][travis-url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/feross/peerdb-www.svg)](https://greenkeeper.io/)
+
 [travis-image]: https://img.shields.io/travis/feross/peerdb-www/master.svg
 [travis-url]: https://travis-ci.org/feross/peerdb-www
 
