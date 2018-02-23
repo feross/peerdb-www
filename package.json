@@ -11,15 +11,15 @@
     "url": "https://github.com/feross/peerdb-www/issues"
   },
   "dependencies": {
-    "browserify": "^14.0.0",
+    "browserify": "^16.1.0",
     "compression": "^1.0.9",
     "cors": "^2.7.1",
-    "debug": "^2.0.0",
+    "debug": "^3.1.0",
     "downgrade": "^1.0.0",
     "express": "^4.8.5",
     "nib": "^1.0.3",
     "pug": "^2.0.0-beta3",
-    "pump": "^1.0.1",
+    "pump": "^3.0.0",
     "run-parallel": "^1.0.0",
     "stylus": "^0.54.0",
     "unlimited": "^1.1.0"
